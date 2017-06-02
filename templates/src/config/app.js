@@ -1,4 +1,3 @@
-/*jshint esversion:6, node:true*/
 'use strict';
 
 /*
@@ -8,6 +7,6 @@ const banner = require('fs').readFileSync('./config/app.banner.txt', 'utf-8');
 
 module.exports = {
     banner,
-    name: 'BACnet',
+    name: '%{name}%',
     environment: process.env.NODE_ENV || 'development',
 };
