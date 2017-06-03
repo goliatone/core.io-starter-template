@@ -4,7 +4,8 @@
   "description": "%{descripton}%",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,9 @@
     "url": "https://github.com/%{git.name}%/%{name}%/issues"
   },
   "homepage": "https://github.com/%{git.name}%/%{name}%#readme",
-  "dependencies": {},
+  "dependencies": {
+      "application-core": "*"
+  },
   "devDependencies": {
     "bogota": "^2.0.4",
     "nyc": "^10.3.2",
