@@ -12,8 +12,14 @@
 //data-manager?
 //express?
     //auth?
-//
+
 module.exports = [
+    {
+        type: 'directory',
+        name: 'target',
+        message: 'Where you like to put create this project?',
+        // basePath: './src'
+    },
     {
         type: 'input',
         name: 'name',
@@ -24,12 +30,18 @@ module.exports = [
         name: 'license',
         message: 'What\'s is the license',
         default: function () {
+            //Look into generating a license file:
+            //https://github.com/Daniel1of1/license
             return 'MIT';
         }
     },
     {
         type: 'input',
         name: 'descripton',
-        message: 'Short project descripton'
-    }
+        message: 'Short project descripton',
+        default: function () {
+            return 'Awesome souce';
+        }
+    },
+
 ];
