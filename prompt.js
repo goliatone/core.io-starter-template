@@ -163,4 +163,14 @@ module.exports.postprocess = function(answers) {
     return answers;
 };
 
+/**
+ * If the pacakge is not at the toplevel
+ * of the templates directory, then we
+ * need to specify it, relative to the
+ * templates folder.
+ *
+ * @type {String}
+ */
+module.exports.packagePath = 'src/package.json';
+
 module.exports = questions;
