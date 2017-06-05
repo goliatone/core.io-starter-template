@@ -146,7 +146,7 @@ let questions = [
 
 module.exports = questions;
 
-module.exports.postprocess = function(answers) {
+module.exports.postprocess = function(context, answers) {
     answers.dependencies = {};
     /*
      *
