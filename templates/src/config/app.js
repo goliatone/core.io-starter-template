@@ -8,5 +8,6 @@ const banner = require('fs').readFileSync('./config/app.banner.txt', 'utf-8');
 module.exports = {
     banner,
     name: '%{name}%',
+    basepath: __dirname,
     environment: process.env.NODE_ENV || 'development',
 };
