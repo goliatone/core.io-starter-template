@@ -148,6 +148,7 @@ module.exports = questions;
 
 module.exports.postprocess = function(context, answers) {
     answers.dependencies = {};
+
     /*
      *
      */
