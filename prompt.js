@@ -144,19 +144,27 @@ let questions = [
     },
 ];
 
+module.exports = questions;
+
 module.exports.postprocess = function(answers) {
     answers.dependencies = {};
-
     /*
      *
      */
     Object.keys(answers).map((key)=>{
         if(!packages[key]) return;
+
+        let vkey = `${key}-version`;
         let value = answers[key];
-        delete answers[key];
-        if(!value) return;
+
+        if(value === false) return;
+
         let pkg = packages[key];
-        let version = answers[`${key}-version`];
+        let version = answers[vkey];
+
+        delete answers[key];
+        delete answers[vkey];
+
         answers.dependencies[pkg] = version || '*';
     });
 
@@ -172,5 +180,3 @@ module.exports.postprocess = function(answers) {
  * @type {String}
  */
 module.exports.packagePath = 'src/package.json';
-
-module.exports = questions;
