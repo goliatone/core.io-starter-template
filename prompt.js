@@ -17,7 +17,7 @@
 
 let packages = {
     'server': 'core.io-express-server',
-    'passport': 'core.io-express-auth',
+    'authentication': 'core.io-express-auth',
     'persistence': 'core.io-persistence',
     'filesync': 'core.io-filesync',
     'data-manager': 'core.io-data-manager',
@@ -79,19 +79,19 @@ let questions = [
     },
     {
         type: 'confirm',
-        name: 'passport',
-        message: 'Do you need passport integration?',
+        name: 'authentication',
+        message: 'Do you need authentication support?',
         when: function (answers) {
             return answers.versions && answers.server;
         }
     },
     {
         type: 'input',
-        name: 'passport-version',
+        name: 'authentication-version',
         message: 'What version of core.io-express-auth?',
         default: '*',
         when: function (answers) {
-            return answers.versions && answers.passport;
+            return answers.versions && answers.authentication;
         }
     },
     {
