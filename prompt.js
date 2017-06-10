@@ -44,6 +44,14 @@ let questions = [
     },
     {
         type: 'input',
+        name: 'nodeVersion',
+        default: function(answer) {
+            return process.version;
+        },
+        message: 'What\'s the project\'s name'
+    },
+    {
+        type: 'input',
         name: 'name',
         default: function(answer) {
             return answer.target;
@@ -165,8 +173,8 @@ let questions = [
 module.exports = questions;
 
 module.exports.postprocess = function(context, answers) {
+    answers.optionals = {};
     answers.dependencies = {};
-
     /*
      *
      */
@@ -191,11 +199,6 @@ module.exports.postprocess = function(context, answers) {
 };
 
 /**
- * If the pacakge is not at the toplevel
- * of the templates directory, then we
- * need to specify it, relative to the
- * templates folder.
- *
- * @type {String}
+ * List of optional packages
  */
-module.exports.packagePath = 'src/package.json';
+module.exports.optionals = packages;
