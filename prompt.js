@@ -48,7 +48,7 @@ let questions = [
         default: function(answer) {
             return process.version;
         },
-        message: 'What\'s the project\'s name'
+        message: 'What node version do you want to use?'
     },
     {
         type: 'input',
