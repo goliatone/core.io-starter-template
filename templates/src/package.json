@@ -13,7 +13,7 @@
   },
   "keywords": [
   ],
-  "author": "%{git.name}% <@%{git.email}%>",
+  "author": "%{git.name}% <%{email}%>",
   "license": "%{license}%",
   "bugs": {
     "url": "https://github.com/%{git.name}%/%{name}%/issues"
