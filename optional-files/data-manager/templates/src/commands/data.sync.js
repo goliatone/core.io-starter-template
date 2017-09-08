@@ -1,7 +1,6 @@
 'use strict';
 
-const Command = require('core.io-data-manager').command;
-
+const Command = require('core.io-data-manager').commands.dataSync;
 /**
  * dataSync: Sincronize models after file updates.
  *
