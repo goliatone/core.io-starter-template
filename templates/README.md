@@ -2,7 +2,7 @@
 
 This is a sample project. To get started:
 ```
-$ npm i %{name}%
+$ npm i %{moduleName}%
 ```
 
 ## License
