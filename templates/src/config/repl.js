@@ -14,5 +14,5 @@ module.exports = {
         prompt: '\u001b[33m ${app.name} > \u001b[39m',
         // header: header
     },
-    port: process.env.NODE_REPL_PORT || %{ replPort | randomPortNumber},
+    port: process.env.NODE_REPL_PORT || %{ replPort | randomPortNumber}%,
 };
