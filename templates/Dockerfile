@@ -22,6 +22,8 @@ RUN cp -a /tmp/node_modules /usr/src/app/
 
 COPY ./src/ /usr/src/app
 
-EXPOSE 3000 8989
+# Ensure this ports match the ones in docker-compose
+# the and .envset file
+EXPOSE 3005 6989
 
 CMD ["dumb-init", "node", "index.js"]
