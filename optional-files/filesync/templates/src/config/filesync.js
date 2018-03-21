@@ -1,4 +1,5 @@
 'use strict';
+const Keypath = require('gkeypath');
 
 const config = {
     exitIfMissingEntityFile: false,
@@ -62,8 +63,8 @@ const config = {
 };
 
 if(process.env.NODE_ENV === 'production') {
-    config.seed.moveAfterDone = true;
-    config.remote.moveAfterDone = true;
+    Keypath.set(config, 'seed.moveAfterDone', true);
+    Keypath.set(config, 'remote.moveAfterDone', true);
 }
 
 /*
