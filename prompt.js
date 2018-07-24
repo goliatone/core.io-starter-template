@@ -174,9 +174,13 @@ module.exports = questions;
 module.exports.postprocess = function(context, answers) {
     answers.optionals = {};
     answers.dependencies = {};
+
     /*
      * Process prompt answers to include 
      * dependencies versions.
+     * 
+     * We also have to remove the optionals
+     * that we are not using.
      */
     Object.keys(answers).map(key => {
         if (!packages[key]) return;
@@ -184,6 +188,9 @@ module.exports.postprocess = function(context, answers) {
         let vkey = `${key}-version`;
         let value = answers[key];
 
+        /**
+         * We don't want this dependency.
+         */
         if (value === false) return;
 
         let pkg = packages[key];
@@ -192,8 +199,24 @@ module.exports.postprocess = function(context, answers) {
         delete answers[key];
         delete answers[vkey];
 
+        /**
+         * Store our dependency version, 
+         * if we did not specify one, just 
+         * use latest.
+         */
         answers.dependencies[pkg] = version || '*';
+
+        /**
+         * Store our optional key, the actual
+         * value is not relevant.
+         * Note that we are just adding an optional
+         * for all modules, even if they do not have
+         * an optional file(s).
+         */
+        answers.optionals[key] = pkg;
     });
+
+
 
     return answers;
 };
