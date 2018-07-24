@@ -1,11 +1,11 @@
 'use strict';
 const slug = require('slug');
-slug.defaults.mode ='rfc3986';
+slug.defaults.mode = 'rfc3986';
 slug.defaults.modes['rfc3986'] = {
-    replacement: '-',      // replace spaces with replacement
-    symbols: true,         // replace unicode symbols or not
-    remove: null,          // (optional) regex to remove characters
-    lower: true,           // result in lower case
+    replacement: '-', // replace spaces with replacement
+    symbols: true, // replace unicode symbols or not
+    remove: null, // (optional) regex to remove characters
+    lower: true, // result in lower case
     charmap: slug.charmap, // replace special characters
     multicharmap: slug.multicharmap // replace multi-characters
 };
@@ -20,10 +20,10 @@ slug.defaults.modes['rfc3986'] = {
 //plugin bring it's own prompt?
 
 //persistence?
-    //data-manager
-    //filesync
+//data-manager
+//filesync
 //express?
-    //auth?
+//auth?
 
 let packages = {
     'server': 'core.io-express-server',
@@ -33,8 +33,7 @@ let packages = {
     'data-manager': 'core.io-data-manager',
 };
 
-let questions = [
-    {
+let questions = [{
         type: 'directory',
         name: 'target',
         message: 'Where you like to put create this project?',
@@ -70,7 +69,7 @@ let questions = [
         type: 'input',
         name: 'license',
         message: 'What\'s is the license',
-        default: function () {
+        default: function() {
             //Look into generating a license file:
             //https://github.com/Daniel1of1/license
             return 'MIT';
@@ -80,7 +79,7 @@ let questions = [
         type: 'input',
         name: 'descripton',
         message: 'Short project descripton',
-        default: function () {
+        default: function() {
             return 'Awesome souce';
         }
     },
@@ -99,7 +98,7 @@ let questions = [
         name: 'server-version',
         message: 'What version of core.io-express-server?',
         default: '*',
-        when: function (answers) {
+        when: function(answers) {
             return answers.versions && answers.server;
         }
     },
@@ -107,7 +106,7 @@ let questions = [
         type: 'confirm',
         name: 'authentication',
         message: 'Do you need authentication support?',
-        when: function (answers) {
+        when: function(answers) {
             return answers.versions && answers.server;
         }
     },
@@ -116,7 +115,7 @@ let questions = [
         name: 'authentication-version',
         message: 'What version of core.io-express-auth?',
         default: '*',
-        when: function (answers) {
+        when: function(answers) {
             return answers.versions && answers.authentication;
         }
     },
@@ -130,7 +129,7 @@ let questions = [
         name: 'persistence-version',
         message: 'What version of core.io-persistence?',
         default: '*',
-        when: function (answers) {
+        when: function(answers) {
             return answers.versions && answers.persistence;
         }
     },
@@ -138,8 +137,8 @@ let questions = [
         type: 'confirm',
         name: 'data-manager',
         message: 'Do you want to ingreate data manager?',
-        when: function (answers) {
-            return answers.versions && answers.persistence;
+        when: function(answers) {
+            return answers.persistence;
         }
     },
     {
@@ -147,7 +146,7 @@ let questions = [
         name: 'data-manager-version',
         message: 'What version of core.io-data-manager?',
         default: '*',
-        when: function (answers) {
+        when: function(answers) {
             return answers.versions && answers['data-manager'];
         }
     },
@@ -155,8 +154,8 @@ let questions = [
         type: 'confirm',
         name: 'filesync',
         message: 'Do you want to update your data store when seed files change?',
-        when: function (answers) {
-            return answers.versions && answers['data-manager'] && answers.persistence;
+        when: function(answers) {
+            return answers['data-manager'] && answers.persistence;
         }
     },
     {
@@ -164,7 +163,7 @@ let questions = [
         name: 'filesync-version',
         message: 'What version of core.io-filesync?',
         default: '*',
-        when: function (answers) {
+        when: function(answers) {
             return answers.versions && answers.filesync;
         }
     },
@@ -176,15 +175,16 @@ module.exports.postprocess = function(context, answers) {
     answers.optionals = {};
     answers.dependencies = {};
     /*
-     *
+     * Process prompt answers to include 
+     * dependencies versions.
      */
-    Object.keys(answers).map((key)=>{
-        if(!packages[key]) return;
+    Object.keys(answers).map(key => {
+        if (!packages[key]) return;
 
         let vkey = `${key}-version`;
         let value = answers[key];
 
-        if(value === false) return;
+        if (value === false) return;
 
         let pkg = packages[key];
         let version = answers[vkey];
