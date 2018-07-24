@@ -1,6 +1,6 @@
 {
   "name": "core.io-starter-template",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "core.io starter project template",
   "scripts": {
     "test": "npm test"
