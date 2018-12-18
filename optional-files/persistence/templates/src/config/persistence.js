@@ -17,7 +17,7 @@ module.exports = {
             }
         },
         defaults: {
-            migrate: process.env.NODE_ENV === 'production' ? 'safe' : 'drop',
+            migrate: process.env.NODE_ENV === 'production' ? 'safe' : 'alter',
             connection: process.env.NODE_PERSISTENCE_CONNECTION || 'production'
         }
     }
