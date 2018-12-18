@@ -174,6 +174,7 @@ module.exports = questions;
 module.exports.postprocess = function(context, answers) {
     answers.optionals = {};
     answers.dependencies = {};
+    answers.dependents = {};
 
     /*
      * Process prompt answers to include 
@@ -216,7 +217,11 @@ module.exports.postprocess = function(context, answers) {
         answers.optionals[key] = pkg;
     });
 
-
+    if (answers.optionals.server && answers.optionals.persistence) {
+        answers.dependents = {
+            server: ['persistence']
+        };
+    }
 
     return answers;
 };
