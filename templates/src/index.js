@@ -15,7 +15,7 @@ const app = new Application({
 });
 
 /**
- * Once the application has bootstraped
+ * Once the application has bootstrapped
  * then we can start the application.
  * - coreplugins.ready (commands and plugins not loaded)
  * - modules.ready
