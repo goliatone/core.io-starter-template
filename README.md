@@ -1,3 +1,9 @@
+## core.io Starter Project Template
+
+Starter template for core.io projects.
+
+### Notes 
+
 does not resolve:
 port: process.env.NODE_REPL_PORT || %{ replPort | randomPortNumber}%,
 
