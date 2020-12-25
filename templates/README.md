@@ -6,19 +6,42 @@ This is a sample project. To get started:
 $ npm i %{moduleName}%
 ```
 
+## Module alias
+
+We use [module-alias]() as a convenience to access modules in `./lib` as local modules using the syntax:
+
+```js
+const myModule = require('@lib/my-module');
+```
+
+You can configure the aliases in the `package.json` file:
+
+```json
+...
+  "_moduleAliases": {
+    "@lib": "./lib"
+  }
+```
 
 ### Environment variables
 
+List of environment variables:
+
+* `NODE_ENV`
 * `NODE_APP_PORT`
 * `NODE_REPL_PORT`
 
-## Docker
+
+
+## Development 
+
+### Docker
 
 NOTE: Ensure that the ports you have specified in the **docker-compose.yml** file, the **Dockerfile**, and `.envset` are the same.
 
-### Dockerfile
+#### Dockerfile
 
-### Docker Compose
+#### Docker Compose
 
 ```
 version: '3'
