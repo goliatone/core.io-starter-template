@@ -8,7 +8,7 @@ $ npm i %{moduleName}%
 
 ## Module alias
 
-We use [module-alias]() as a convenience to access modules in `./lib` as local modules using the syntax:
+We use [module-alias](https://github.com/ilearnio/module-alias) as a convenience to access modules in `./lib` as local modules using the syntax:
 
 ```js
 const myModule = require('@lib/my-module');
