@@ -55,7 +55,7 @@ let questions = [{
         default: function(answer) {
             return answer.target;
         },
-        message: 'What\'s the project\'s name'
+        message: 'What\'s the project\'s name?'
     },
     {
         type: 'input',
@@ -77,8 +77,8 @@ let questions = [{
     },
     {
         type: 'input',
-        name: 'descripton',
-        message: 'Short project descripton',
+        name: 'description',
+        message: 'Short project description',
         default: function() {
             return 'Awesome souce';
         }
@@ -136,7 +136,7 @@ let questions = [{
     {
         type: 'confirm',
         name: 'data-manager',
-        message: 'Do you want to ingreate data manager?',
+        message: 'Do you want to integrate data manager?',
         when: function(answers) {
             return answers.persistence;
         }

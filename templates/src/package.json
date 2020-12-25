@@ -11,8 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/%{git.name}%/%{moduleName}%.git"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "%{git.name}% <%{email}%>",
   "license": "%{license}%",
   "bugs": {
@@ -20,7 +19,8 @@
   },
   "homepage": "https://github.com/%{git.name}%/%{moduleName}%#readme",
   "dependencies": {
-      "application-core": "*"
+    "application-core": "*",
+    "module-alias": "^2.2.2"
   },
   "devDependencies": {
     "bogota": "^2.0.4",
@@ -30,5 +30,8 @@
     "tape": "^4.11.0",
     "tape-catch": "^1.0.6",
     "watch": "^1.0.2"
+  },
+  "_moduleAliases": {
+    "@lib": "./lib"
   }
 }

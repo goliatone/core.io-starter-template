@@ -1,20 +1,26 @@
 'use strict';
+require('module-alias/register');
 
 const Application = require('application-core').Application;
 
-let config = Application.loadConfig({});
+const loaderOptions = {};
 
-let app = new Application({
+/**
+ * Load configuration from config folder
+ */
+const config = Application.loadConfig(loaderOptions);
+
+const app = new Application({
     config
 });
 
 /**
- * Once the application has bootstraped
+ * Once the application has bootstrapped
  * then we can start the application.
  * - coreplugins.ready (commands and plugins not loaded)
  * - modules.ready
  * - commands.ready
  */
-app.once('modules.ready', () => {
+app.once('modules.ready', _ => {
     app.run();
 });
