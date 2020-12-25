@@ -32,6 +32,6 @@
     "watch": "^1.0.2"
   },
   "_moduleAliases": {
-    "@lib"      : "./lib"
+    "@lib": "./lib"
   }
 }
