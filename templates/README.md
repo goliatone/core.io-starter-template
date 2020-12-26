@@ -70,4 +70,4 @@ services:
 ```
 
 ## License
-® License %{license}% %{year}% by %{git.name}%
+® License %{license}% %{date.year}% by %{git.name}%
