@@ -4,7 +4,9 @@
   "description": "%{descripton}%",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "./node_modules/.bin/bogota",
+    "dtest": "watch ./node_modules/.bin/bogota tests/",
+    "cover": "./node_modules/.bin/nyc npm test",
     "start": "node index.js"
   },
   "repository": {
