@@ -1,5 +1,4 @@
-FROM        node:6.5
-MAINTAINER  {git.name} <%{git.email}%>
+FROM        node:%{nodeVersion}%
 
 RUN \
     mkdir -p /usr/src/app
