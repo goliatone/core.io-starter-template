@@ -14,7 +14,7 @@
     "url": "git+https://github.com/%{git.name}%/%{moduleName}%.git"
   },
   "keywords": [],
-  "author": "%{git.name}% <%{email}%>",
+  "author": "%{git.name}% <%{git.email}%>",
   "license": "%{license}%",
   "bugs": {
     "url": "https://github.com/%{git.name}%/%{moduleName}%/issues"
