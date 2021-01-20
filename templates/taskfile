@@ -1,4 +1,11 @@
 #!/bin/bash
+set -x
+
+# If we have a .taskenv file load it as source
+if [ -f .taskenv ]; then
+    source .taskenv
+fi
+
 PATH=./src/node_modules/.bin:$PATH
 PATH=./src/bin:$PATH
 PATH=./bin:$PATH
