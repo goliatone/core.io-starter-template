@@ -1,5 +1,23 @@
 #!/bin/bash
-PATH=./node_modules/.bin:$PATH
+PATH=./src/node_modules/.bin:$PATH
+PATH=./src/bin:$PATH
+PATH=./bin:$PATH
+
+#################################################
+# Handle upgrading multiple packages specified in 
+# package.json. Add the package names you want
+# manged in the `package.json#_monorepo array`
+# You need to have `jq` installed
+###############################################
+
+function monorepo:update {
+    cd ./src 
+    
+    for pkg in $(cat package.json | jq -r ._monorepo[]); do 
+        echo "check pakage: $pkg"
+        ncu --upgrade $pkg
+    done
+}
 
 ##########################################
 # Publish NPM/Github Tags
