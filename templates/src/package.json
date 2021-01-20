@@ -22,10 +22,13 @@
   "homepage": "https://github.com/%{git.name}%/%{moduleName}%#readme",
   "dependencies": {
     "application-core": "*",
-    "module-alias": "^2.2.2"
+    "module-alias": "^2.2.2",
+    "gextend": "*",
+    "gkeypath": "^0.8.0",
   },
   "devDependencies": {
     "bogota": "^2.0.4",
+    "npm-check-updates": "^10.3.1",
     "nyc": "^10.3.2",
     "sinon": "^7.3.2",
     "tap-spec": "^5.0.0",
@@ -35,5 +38,10 @@
   },
   "_moduleAliases": {
     "@lib": "./lib"
-  }
+  },
+  "_monorepo": [
+    "application-core",
+    "gkeypath",
+    "gextend"
+  ]
 }
