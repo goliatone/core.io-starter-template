@@ -24,7 +24,7 @@
     "application-core": "*",
     "module-alias": "^2.2.2",
     "gextend": "*",
-    "gkeypath": "^0.8.0",
+    "gkeypath": "^0.8.0"
   },
   "devDependencies": {
     "bogota": "^2.0.4",
